@@ -2,7 +2,7 @@ const express =require("express");
 const cors = require('cors')
 const dotenv = require("dotenv")
 dotenv.config()
-const {routes} = require('./routes/registerRoute')
+const routes = require('./routes/registerRoute')
 const mongoose = require('mongoose')
 // const multer = require("multer")
 const app = express();
@@ -12,7 +12,6 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use("/" , routes)
-app.use("uploads" , express.static('uploads'))
 // const upload = multer({dest : './uploads'})
 const uri = process.env.MONGO_URI ;
 app.get("/" , (req,res) => {
